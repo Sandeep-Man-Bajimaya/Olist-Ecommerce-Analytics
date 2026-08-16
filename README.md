@@ -246,37 +246,39 @@ The analysis also evaluates revenue concentration across the highest-performing 
 
 ### Project Structure
 
-
-
 Olist-Ecommerce-Analytics/
 │
+├── Documentation/
+│   ├── Business_Questions.md
+│   ├── Data_Dictionary.md
+│   └── Project_Overview.md
+│
 ├── PowerBI/
+│   ├── E-commerce of Olits.pbix
 │   └── Data/
-│       └── Raw/
+│       ├── Cleaning Log.txt
+│       └── Schema notes.txt
 │
 ├── SQL/
 │   ├── Views/
-│   │   ├── vw\_completed\_sales.sql
-│   │   ├── vw\_completed\_orders.sql
-│   │   ├── vw\_category\_performance.sql
-│   │   ├── vw\_customer\_performance.sql
-│   │   ├── vw\_delivery\_performance.sql
-│   │   ├── vw\_seller\_performance.sql
-│   │   └── vw\_seller\_segments.sql
+│   │   ├── vw_completed_sales.sql
+│   │   ├── vw_completed_orders.sql
+│   │   ├── vw_category_performance.sql
+│   │   ├── vw_customer_performance.sql
+│   │   ├── vw_delivery_performance.sql
+│   │   ├── vw_seller_performance.sql
+│   │   └── vw_seller_segments.sql
 │   │
 │   └── Analysis/
-│       ├── 01\_category\_performance.sql
-│       ├── 02\_category\_revenue\_concentration.sql
-│       ├── 03\_delivery\_performance.sql
-│       ├── 04\_customer\_performance.sql
-│       ├── 05\_seller\_performance.sql
-│       └── 06\_seller\_segmentation.sql
+│       ├── 01_category_performance.sql
+│       ├── 02_category_revenue_concentration.sql
+│       ├── 03_delivery_performance.sql
+│       ├── 04_customer_performance.sql
+│       ├── 05_seller_performance.sql
+│       └── 06_seller_segmentation.sql
 │
-├── Documentation/
-│
+├── .gitignore
 └── README.md
-
-
 
 Analytical Workflow
 Raw Olist Dataset
