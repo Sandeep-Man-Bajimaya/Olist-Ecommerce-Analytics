@@ -1,0 +1,49 @@
+E-Commerce Sales & Customer Analytics
+Data Cleaning Log
+
+1. Missing Values
+Orders:
+- order_approved_at: 160 missing
+- order_delivered_carrier_date: 1,783 missing
+- order_delivered_customer_date: 2,965 missing
+
+Reviews:
+- review_comment_title: 87,656 missing
+- review_comment_message: 58,247 missing
+
+Products:
+- 610 products missing product_category_name
+- The same 610 products also have missing product_name_lenght,
+  product_description_lenght, and product_photos_qty
+- 2 products have missing product_weight_g
+- 2 products have missing product_length_cm
+- 2 products have missing product_height_cm
+- 2 products have missing product_width_cm
+
+2. Duplicate Records
+- No exact duplicate rows found in the main transactional tables.
+- Geolocation contains 261,831 exact duplicate rows.
+- Geolocation has 1,000,163 rows but only 19,015 unique ZIP-code prefixes.
+- Geolocation will not be joined directly to transactional data without
+  first handling the repeated ZIP-prefix records.
+
+3. Numeric Anomalies
+- No negative prices found.
+- No negative freight values found.
+- No negative payment values found.
+- No invalid review scores found.
+- 2 credit-card payment records have payment_installments = 0.
+- 4 products have product_weight_g = 0.
+
+4. Timestamp Anomalies
+- 1,359 orders have carrier timestamps earlier than approval timestamps.
+- 23 orders have customer delivery timestamps earlier than carrier timestamps.
+- No orders have approval timestamps earlier than purchase timestamps.
+- No orders have customer delivery timestamps earlier than purchase timestamps.
+
+5. Cleaning Principles
+- Raw data will not be modified.
+- Missing values will not be filled with invented values.
+- Anomalous timestamps will not be manually corrected.
+- Records will only be excluded from analyses when the specific
+  data-quality issue affects the calculation.

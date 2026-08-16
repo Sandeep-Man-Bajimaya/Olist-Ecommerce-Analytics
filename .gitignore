@@ -1,0 +1,61 @@
+# Power BI temporary and local files
+
+*.pbi/
+*.pbicache
+*.tmp
+
+# Raw Olist dataset
+
+PowerBI/Data/Raw/*.csv
+
+# Local database / exported data files
+
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment and secrets
+
+.env
+.env.*
+!.env.example
+
+# Credentials and certificates
+
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Python
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Operating system
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE settings
+
+.vscode/
+.idea/
+
+# Logs
+
+*.log
+logs/
+
+# Local configuration
+
+config.local.*
+settings.local.*
+
+# Power BI backup / recovery files
+
+*.bak

@@ -1,0 +1,160 @@
+Database 
+Schema Notes
+1. Customers → Orders
+   Connection: customer_id
+   Relationship: One-to-Many
+   One customer can have multiple orders.
+
+2. Orders → Order Items
+   Connection: order_id
+   Relationship: One-to-Many
+   One order can contain multiple order items.
+
+3. Orders → Order Payments
+   Connection: order_id
+   Relationship: One-to-Many
+   One order can have multiple payment records.
+
+4. Orders → Order Reviews
+   Connection: order_id
+   Relationship: One-to-Many
+   One order can have multiple review records.
+
+5. Order Items → Products
+   Connection: product_id
+   Relationship: Many-to-One
+   Multiple order items can refer to the same product.
+
+6. Order Items → Sellers
+   Connection: seller_id
+   Relationship: Many-to-One
+   Multiple order items can be associated with the same seller.
+
+7. Products → Category Translation
+   Connection: product_category_name
+   Relationship: Many-to-One
+   Multiple products can belong to the same product category.
+
+8. Customers → Geolocation
+   Connection: customer_zip_code_prefix = geolocation_zip_code_prefix
+   Relationship: To be verified from the data.
+   Geolocation contains multiple records for some ZIP-code prefixes.
+
+9. Sellers → Geolocation
+   Connection: seller_zip_code_prefix = geolocation_zip_code_prefix
+   Relationship: To be verified from the data.
+   Geolocation contains multiple records for some ZIP-code prefixes.
+
+Primary Keys
+1. olist_customers_dataset
+   → customer_id
+
+2. olist_orders_dataset
+   → order_id
+
+3. olist_order_items_dataset
+   → order_id + order_item_id
+   → Composite primary key
+
+4. olist_order_payments_dataset
+   → order_id + payment_sequential
+   → Composite primary key
+
+5. olist_order_reviews_dataset
+   → review_id
+
+6. olist_products_dataset
+   → product_id
+
+7. olist_sellers_dataset
+   → seller_id
+
+8. olist_geolocation_dataset
+   → No obvious single-column primary key
+   → geolocation_zip_code_prefix is NOT unique
+
+9. product_category_name_translation
+   → product_category_name
+
+key Structure
+customers
+    PK: customer_id
+
+orders
+    PK: order_id
+
+order_items
+    PK: order_id + order_item_id
+
+order_payments
+    PK: order_id + payment_sequential
+
+order_reviews
+    PK: review_id + order_id
+
+products
+    PK: product_id
+
+sellers
+    PK: seller_id
+
+product_category_name_translation
+    PK: product_category_name
+
+geolocation
+    No verified primary key
+
+Primary Keys
+------------
+
+customers:
+    PK: customer_id
+
+orders:
+    PK: order_id
+
+order_items:
+    PK: order_id + order_item_id
+
+order_payments:
+    PK: order_id + payment_sequential
+
+order_reviews:
+    PK: review_id + order_id
+
+products:
+    PK: product_id
+
+sellers:
+    PK: seller_id
+
+product_category_name_translation:
+    PK: product_category_name
+
+geolocation:
+    No verified primary key
+
+
+Foreign-Key Relationships
+-------------------------
+
+orders.customer_id
+    → customers.customer_id
+
+order_items.order_id
+    → orders.order_id
+
+order_items.product_id
+    → products.product_id
+
+order_items.seller_id
+    → sellers.seller_id
+
+order_payments.order_id
+    → orders.order_id
+
+order_reviews.order_id
+    → orders.order_id
+
+products.product_category_name
+    → product_category_name_translation.product_category_name
