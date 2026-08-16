@@ -81,27 +81,45 @@ Only delivered orders are used as the primary completed-sales population where a
 
 The SQL layer contains seven reusable analytical views:
 
+### Project Structure
 
 
-Base Olist Tables
+Olist-Ecommerce-Analytics/
 │
-▼
-vw\_completed\_sales
+├── Documentation/
+│   ├── Business_Questions.md
+│   ├── Data_Dictionary.md
+│   └── Project_Overview.md
 │
-▼
-vw\_completed\_orders
+├── PowerBI/
+│   ├── E-commerce of Olits.pbix
+│   └── Data/
+│       ├── Cleaning Log.txt
+│       └── Schema notes.txt
 │
-├── vw\_category\_performance
-├── vw\_customer\_performance
-└── vw\_seller\_performance
+├── SQL/
+│   ├── Views/
+│   │   ├── vw_completed_sales.sql
+│   │   ├── vw_completed_orders.sql
+│   │   ├── vw_category_performance.sql
+│   │   ├── vw_customer_performance.sql
+│   │   ├── vw_delivery_performance.sql
+│   │   ├── vw_seller_performance.sql
+│   │   └── vw_seller_segments.sql
+│   │
+│   └── Analysis/
+│       ├── 01_category_performance.sql
+│       ├── 02_category_revenue_concentration.sql
+│       ├── 03_delivery_performance.sql
+│       ├── 04_customer_performance.sql
+│       ├── 05_seller_performance.sql
+│       └── 06_seller_segmentation.sql
 │
-▼
-vw\_seller\_segments
+├── .gitignore
+└── README.md
 
-olist\_orders
-│
-▼
-vw\_delivery\_performance
+
+The raw Olist CSV files are excluded from GitHub through `.gitignore` because they are source data files and some are large.
 
 
 
